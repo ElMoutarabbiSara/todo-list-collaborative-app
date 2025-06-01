@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './componenents/AuthForm.css';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="auth-container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -45,7 +46,7 @@ function Register() {
           value={formData.name}
           onChange={handleChange}
           required
-        /><br/>
+        />
         <input
           type="email"
           name="email"
@@ -53,7 +54,7 @@ function Register() {
           value={formData.email}
           onChange={handleChange}
           required
-        /><br/>
+        />
         <input
           type="password"
           name="password"
@@ -61,13 +62,12 @@ function Register() {
           value={formData.password}
           onChange={handleChange}
           required
-        /><br/>
+        />
         <button type="submit">Register</button>
       </form>
       {message && <p>{message}</p>}
     </div>
   );
 }
-
 
 export default Register;

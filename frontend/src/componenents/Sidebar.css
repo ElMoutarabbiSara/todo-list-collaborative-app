@@ -1,0 +1,38 @@
+.sidebar {
+  width: 220px;
+  background-color: #1f2937; /* Tailwind's gray-800 */
+  color: #f9fafb;             /* Tailwind's gray-50 */
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav li {
+  margin-bottom: 1rem;
+}
+
+.sidebar nav a {
+  color: #d1d5db; /* Tailwind's gray-300 */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.sidebar nav a:hover {
+  color: #ffffff;
+}

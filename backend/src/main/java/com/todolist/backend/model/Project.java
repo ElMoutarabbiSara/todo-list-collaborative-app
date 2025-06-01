@@ -1,13 +1,19 @@
 package com.todolist.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Project {
@@ -24,10 +30,6 @@ public class Project {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // (Optionnel) Pour plus tard : relation avec les tâches
-    // @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
-    // private List<Task> tasks;
-
     // Getters & Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -40,4 +42,19 @@ public class Project {
 
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private final List<Task> tasks = new ArrayList<>();
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks.clear();
+        if (tasks != null) {
+            this.tasks.addAll(tasks);
+        }
+    }
 }
