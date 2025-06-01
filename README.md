@@ -1,7 +1,5 @@
 # FocusFlow-todo-list-collaborative-app
 
-# ✅ Application To-Do List Collaborative
-
 Une application web **collaborative** permettant à des utilisateurs de :
 
 - 🔐 Créer un compte et se connecter
